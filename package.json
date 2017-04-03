@@ -1,7 +1,7 @@
 {
   "name": "language-spad",
   "main": "./lib/spad-package",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SPAD, Aldor and Axiom interpreter support in Atom",
   "keywords": [
     "Axiom",
