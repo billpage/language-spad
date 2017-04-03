@@ -1,0 +1,10 @@
+'.source.python':
+  'if':
+    'prefix': 'if'
+    'body': 'if ${1:condition}:\n\t${2:pass}'
+  'for':
+    'prefix': 'for'
+    'body': 'for ${1:value} in ${2:variable} repeat\n\t${3:pass}'
+  'while':
+    'prefix': 'while'
+    'body': 'while ${1:condition} repeat\n\t${2:pass}'

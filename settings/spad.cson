@@ -1,0 +1,8 @@
+'.spad':
+  'editor':
+    'autoIndentOnPaste': false
+    'softTabs': true
+    'tabLength': 2
+    'commentStart': '--'
+    'increaseIndentPattern': '^\\s*(else|then|repeat)\\b.*:\\s*$'
+    'decreaseIndentPattern': '^\\s*(else)\\b.*:'

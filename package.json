@@ -1,0 +1,29 @@
+{
+  "name": "language-spad",
+  "main": "./lib/spad-package",
+  "version": "0.0.0",
+  "description": "SPAD, Aldor and Axiom interpreter support in Atom",
+  "keywords": [
+    "Axiom",
+    "OpenAxiom",
+    "FriCAS",
+    "Aldor",
+    "SPAD",
+    "language",
+    "grammar",
+    "syntax"
+  ],
+  "homepage": "https://github.com/billpage/language-spad",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/billpage/language-spad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/billpage/language-spad/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": { }
+}

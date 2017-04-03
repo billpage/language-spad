@@ -1,0 +1,265 @@
+'fileTypes': [
+  'spad'
+  'as'
+  'input'
+]
+'name': 'spad'
+
+'.spad':
+  'editor':
+    'commentStart': '--'|'++'
+
+'scopeName': 'source.spad'
+'patterns' : [
+  # {
+  #   'name': 'string.quoted.double.untitled'
+  #   'begin': '"'
+  #   'end': '"'
+  # },
+  # {
+  #   'name': 'comment.block.spad'
+  #   'match': '(--|\\+\\+).*((\\r)?[\\n]|$)'
+  # },
+  {
+    'include': '#line_comments'
+  },
+  {
+    'include': '#string_quoted_double'
+  },
+  {
+    'match': '\\b(?:Boolean|Float|Integer|NonNegativeInteger|PositiveInteger\\%)\\b'
+    'name': 'storage.type.primitive.spad'
+  },
+  {
+    'match': '\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?=[^a-zA-Z_])'
+    'name': 'constant.numeric.float.spad'
+  },
+  {
+    'match': '(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))'
+    'name': 'constant.numeric.float.spad'
+  },
+  {
+    'match': '\\b(?i:(\\d+e[\\-\\+]?\\d+))'
+    'name': 'constant.numeric.float.spad'
+  },
+  {
+    'match': '\\b([1-9]+[0-9]*|0)'
+    'name': 'constant.numeric.integer.decimal.spad'
+  },
+  {
+    'captures':
+      '1':
+        'name': 'keyword.control.import.spad'
+      '2':
+        'name': 'keyword.control.import.from.spad'
+    'match': '\\b(?:(import)|(from))\\b'
+  },
+  {
+    'comment': 'keywords that delimit flow conditionals'
+    'name': 'keyword.control.conditional.spad'
+    'match': '\\b(if|then|else|\\=>)\\b'
+  },
+  {
+    'comment': 'keywords that delimit loops'
+    'name': 'keyword.control.repeat.spad'
+    'match': '\\b(for|while|repeat)\\b'
+  },
+  {
+    'comment': 'keywords that alter flow from within a block'
+    'name': 'keyword.control.statement.spad'
+    'match': '\\b(break|continue|return|yield)\\b'
+  },
+  {
+    'comment': 'keyword operators that evaluate to True or False'
+    'match': '\\b(and|in|is|not|or|has)\\b'
+    'name': 'keyword.operator.logical.spad'
+  },
+  {
+    'match': '\\=|<\\=|>\\=|\\=\\=|<|>|\\^\\='
+    'name': 'keyword.operator.comparison.spad'
+  },
+  {
+    'match': '\\+|\\-|\\*|\\*\\*|/|&|\\||\\^|~'
+    'name': 'keyword.operator.arithmetic.spad'
+  },
+  {
+    'match': '\\=\\:'
+    'name': 'keyword.operator.assignment.spad'
+  },
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.definition.list.begin.spad'
+      '2':
+        'name': 'meta.empty-list.spad'
+      '3':
+        'name': 'punctuation.definition.list.end.spad'
+    'match': '(\\[)(\\s*(\\]))\\b'
+  },
+  {
+    'begin': '(\\[)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.definition.list.begin.spad'
+    'end': '(\\])'
+    'endCaptures':
+      '1':
+        'name': 'punctuation.definition.list.end.spad'
+    'name': 'meta.structure.list.spad'
+    'patterns': [
+      {
+        'begin': '(?<=\\[|\\,)\\s*(?![\\],])'
+        'contentName': 'meta.structure.list.item.spad'
+        'end': '\\s*(?:(,)|(?=\\]))'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.separator.list.spad'
+        'patterns': [
+          {
+            'include': '%'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.definition.tuple.begin.spad'
+      '2':
+        'name': 'meta.empty-tuple.spad'
+      '3':
+        'name': 'punctuation.definition.tuple.end.spad'
+    'match': '(\\()(\\s*(\\)))'
+    'name': 'meta.structure.tuple.spad'
+  },
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.definition.dictionary.begin.spad'
+      '2':
+        'name': 'meta.empty-dictionary.spad'
+      '3':
+        'name': 'punctuation.definition.dictionary.end.spad'
+    'match': '(\\{)(\\s*(\\}))'
+    'name': 'meta.structure.dictionary.spad'
+  },
+  {
+    'begin': '(\\{)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.definition.set.begin.spad'
+    'end': '(\\})'
+    'endCaptures':
+      '1':
+        'name': 'punctuation.definition.set.end.spad'
+    'name': 'meta.structure.set.spad'
+    'patterns': [
+      {
+        'begin': '(?<=\\{|\\,|^)\\s*(?![\\},])'
+        'contentName': 'meta.structure.set.key.spad'
+        'end': '\\s*(?:(?=\\})|(\\:))'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.separator.valuepair.dictionary.spad'
+        'patterns': [
+          {
+            'include': '%'
+          }
+        ]
+      }
+      {
+        'begin': '(?<=\\:|^)\\s*'
+        'contentName': 'meta.structure.dictionary.value.spad'
+        'end': '\\s*(?:(?=\\})|(,))'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.separator.dictionary.spad'
+        'patterns': [
+          {
+            'include': '%'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    'include': '#function_name'
+  }
+
+]
+
+'repository':
+  'builtin_functions':
+    'match': '(?x)\\b(abs|all|any|complex|divmod|enumerate|eval|float|hash|integer|\\#|list|map|max|min|ord|pow|property|round|set|sum|typeOf|zip|reduce|apply|coerce)\\b'
+    'name': 'support.function.builtin.spad'
+  'builtin_types':
+    'match': '(?x)\\b(Record|Union|Boolean|Float|DoubleFloat|Integer|Polynomial|Symbol|Fraction|List)\\b'
+    'name': 'support.type.spad'
+  'line_comments':
+    'begin': '(^[ \\t]+)?(?=(--|\\+\\+))'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.spad'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '(--|\\+\\+)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.spad'
+        'end': '\\n'
+        'name': 'comment.line.number-sign.spad'
+      }
+    ]
+  'function_name':
+    'patterns': [
+      {
+        'include': '#builtin_functions'
+      }
+      {
+        'include': '#builtin_types'
+      }
+      {
+        'include': '#generic_names'
+      }
+    ]
+  'generic_names':
+    'match': '[A-Za-z_][A-Za-z0-9_]*'
+  'language_variables':
+    'match': '\\b(Rep)\\b'
+    'name': 'variable.language.self.spad'
+  'line_continuation':
+    'captures':
+      '1':
+        'name': 'punctuation.separator.continuation.line.spad'
+      '2':
+        'name': 'invalid.illegal.unexpected-text.spad'
+    'match': '(_)(.*)$\\n?'
+  'string_quoted_double':
+    'patterns': [
+      {
+        'begin': '(")'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.definition.string.begin.python'
+        'comment': 'double quoted string'
+        'end': '((?<=")(")|")|(\\n)'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.string.end.python'
+          '2':
+            'name': 'meta.empty-string.double.python'
+          '3':
+            'name': 'invalid.illegal.unclosed-string.python'
+        'name': 'string.quoted.double.single-line.python'
+        'patterns': [
+          {
+            'include': '#constant_placeholder'
+          }
+          {
+            'include': '#escaped_char'
+          }
+        ]
+      }
+    ]
