@@ -20,8 +20,8 @@ The basic syntax regex patterns seem to work for most cases. However there are m
 
 ## Links
 
-- [Axiom](http://www.axiom-developer.org) -- a safe, concurrent, practical language
-- [OpenAxiom](http://www.open-axiom.org) -- a safe, concurrent, practical language
-- [FriCAS](http://fricas.sourceforge.net/) -- a safe, concurrent, practical language
-- [Aldor](http://www.aldor.org/) -- a safe, concurrent, practical language
+- [Axiom](http://www.axiom-developer.org) -- original Axiom open source project - focused on literate documentation, Lisp
+- [OpenAxiom](http://www.open-axiom.org) -- fork of Axiom - language extensions, compiler
+- [FriCAS](http://fricas.sourceforge.net/) -- fork of Axiom - integration, build system
+- [Aldor](http://www.aldor.org/) -- next generation library compiler and stand alone language
 - [Atom](http://atom.io/) -- a hackable text editor for the 21st Century
